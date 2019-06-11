@@ -27,3 +27,5 @@ router.route('/artworks/:artwork_id')
     .patch(artworkController.update)
     .put(artworkController.update)
     .delete(artworkController.delete);
+    
+module.exports = router;

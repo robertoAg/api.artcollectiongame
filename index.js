@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-Artist = require('./model/artistModel');
-Artwork = require('./model/artworkModel');
+Artist = require('./model/artist');
+Artwork = require('./model/artwork');
 
 // Connect to Mongoose and set connection variable
 mongoose.connect('mongodb://localhost/resthub', function (err) {

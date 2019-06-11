@@ -1,5 +1,5 @@
-var mongoose = require('moongose');
-var artistSchema = moongose.Schema({
+var mongoose = require('mongoose');
+var artistSchema = mongoose.Schema({
     name: {
         type: String
     },
@@ -65,4 +65,4 @@ var artistSchema = moongose.Schema({
         ref: 'Artwork'
     }
 });
-mondule.exports = moongose.model('Artist', artistSchema);
+module.exports = mongoose.model('Artist', artistSchema);
