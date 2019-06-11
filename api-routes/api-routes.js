@@ -13,7 +13,7 @@ var artworkController = require('./../controller/artworkController');
 router.route('/artist')
     .get(artistController.index)
     .post(artistController.new);
-router.route('/artists/:artist_id')
+router.route('/artist/:artist_id')
     .get(artistController.view)
     .patch(artistController.update)
     .put(artistController.update)
@@ -22,7 +22,7 @@ router.route('/artists/:artist_id')
 router.route('/artwork')
     .get(artworkController.index)
     .post(artworkController.new);
-router.route('/artworks/:artwork_id')
+router.route('/artwork/:artwork_id')
     .get(artworkController.view)
     .patch(artworkController.update)
     .put(artworkController.update)

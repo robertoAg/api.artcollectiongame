@@ -31,7 +31,7 @@ exports.new = function (req, res) {
     artwork.period = req.body.period;
     artwork.media = req.body.media;
     artwork.location = req.body.location;
-    artwork.artist = req.body.review.artist;
+    artwork.artist = req.body.artist;
 // save the artwork and check for errors
 // TODO save artwork _id also on artist.artworks[]
     artwork.save(function (err) {
@@ -70,7 +70,7 @@ exports.update = function (req, res) {
         artwork.period = req.body.period;
         artwork.media = req.body.media;
         artwork.location = req.body.location;
-        artwork.artist = req.body.review.artist;
+        artwork.artist = req.body.artist;
 // save the artwork and check for errors
         artwork.save(function (err) {
             if (err)

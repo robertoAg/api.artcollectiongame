@@ -1,0 +1,5 @@
+**Endpoints**
+
+*/api/artist*
+*POST*
+

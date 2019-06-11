@@ -13,7 +13,15 @@ var artistSchema = mongoose.Schema({
     },
     birth: {
         date: {
-            type: String
+            year: {
+                type: String
+            },
+            month: {
+                type: String
+            },
+            day: {
+                type: String
+            }
         },
         place: {
             city: {
@@ -26,7 +34,15 @@ var artistSchema = mongoose.Schema({
     },
     death: {
         date: {
-            type: String
+            year: {
+                type: String
+            },
+            month: {
+                type: String
+            },
+            day: {
+                type: String
+            }
         },
         place: {
             city: {
