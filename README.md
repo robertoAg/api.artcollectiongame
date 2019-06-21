@@ -3,3 +3,4 @@
 */api/artist*
 *POST*
 
+Example:

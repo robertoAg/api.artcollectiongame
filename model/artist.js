@@ -76,9 +76,11 @@ var artistSchema = mongoose.Schema({
         min: 0,
         max: 100
     },
-    artworks: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'Artwork'
-    }
+    artworks: [
+        {
+            type: [mongoose.Schema.ObjectId],
+            ref: 'Artwork'
+        }
+    ]
 });
 module.exports = mongoose.model('Artist', artistSchema);

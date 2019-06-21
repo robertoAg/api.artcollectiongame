@@ -58,25 +58,10 @@ exports.view = function (req, res) {
 
 // Handle update artist info
 exports.update = function (req, res) {
-    Artist.findById(req.params.artist_id, function (err, artist) {
-        var artist = new Artist();
-        artist.name = req.body.name;
-        artist.fullName = req.body.fullName;
-        artist.skuName = req.body.skuName;
-        artist.birth = req.body.birth;
-        artist.death = req.body.death;
-        artist.biography = req.body.biography;
-        artist.popularity = req.body.popularity;
-        artist.artworks = req.body.artworks;
-// save the artist and check for errors
-        artist.save(function (err) {
-            if (err)
-                res.json(err);
-            res.json({
-                message: 'Artist Info updated',
-                data: artist
-            });
-        });
+    console.warn(req.params);
+    Artist.findOneAndUpdate({_id:req.params.artist_id}, req.body, {upsert: true}, function(err, doc) {
+        if (err) return res.send(500, { error: err });
+        return res.send("succesfully saved");
     });
 };
 
