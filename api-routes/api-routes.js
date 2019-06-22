@@ -1,15 +1,5 @@
 let router = require('express').Router();
 
-router.get('/', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.json({
-        status: 'API Its Working',
-        message: 'Welcome to REST crafted with love!',
-    });
-    next();
-});
-
 var artistController = require('./../controller/artistController');
 var artworkController = require('./../controller/artworkController');
 
