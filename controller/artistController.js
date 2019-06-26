@@ -1,8 +1,6 @@
 const util = require('util');
 
 exports.index = function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     Artist
         .find(req.query)
         .populate('artist')
@@ -59,7 +57,6 @@ exports.view = function (req, res) {
 
 // Handle update artist info
 exports.update = function (req, res) {
-    console.warn(req.params);
     Artist.findOneAndUpdate({_id:req.params.artist_id}, req.body, {upsert: true}, function(err, doc) {
         if (err) return res.send(500, { error: err });
         return res.send("succesfully saved");
