@@ -34,11 +34,16 @@ exports.new = function (req, res) {
     artwork.location = req.body.location;
     artwork.artist = req.body.artist;
 // save the artwork and check for errors
-// TODO save artwork _id also on artist.artworks[]
     artwork.save(function (err) {
         if (err) {
             res.json(err);
         }else{
+            Artist.findById(req.body.artist, function (err, artist) {
+                if(artist.artworks.indexOf(artwork.id) === -1) {
+                    artist.artworks.push(artwork.id)
+                    artist.save();
+                }
+            })
             res.json({
                 message: 'New artwork created!',
                 data: artwork
@@ -62,6 +67,12 @@ exports.view = function (req, res) {
 // Handle update artwork info
 exports.update = function (req, res) {
     Artwork.findOneAndUpdate({_id:req.params.artwork_id}, req.body, {upsert: true}, function(err, doc) {
+        Artist.findById(req.body.artist, function (err, artist) {
+            if(artist.artworks.indexOf(req.params.artwork_id) === -1) {
+                artist.artworks.push(req.params.artwork_id)
+                artist.save();
+            }
+        })
         if (err) return res.send(500, { error: err });
         return res.send("succesfully saved");
     });

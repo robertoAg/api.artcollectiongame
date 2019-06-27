@@ -3,7 +3,7 @@ const util = require('util');
 exports.index = function (req, res, next) {
     Artist
         .find(req.query)
-        .populate('artist')
+        // .populate('artworks')
         .exec((err, results) => {
             if (err) {
                 res.json({
