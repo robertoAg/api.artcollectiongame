@@ -74,7 +74,9 @@ exports.update = function (req, res) {
             }
         })
         if (err) return res.send(500, { error: err });
-        return res.send("succesfully saved");
+        return res.json({
+            message: 'succesfully saved'
+        });
     });
 };
 
