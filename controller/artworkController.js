@@ -3,10 +3,9 @@ const util = require('util');
 exports.index = function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    console.warn(req.query);
     Artwork
         .find(req.query)
-        .populate('artist')
+        // .populate('artist')
         .exec((err, results) => {
             if (err) {
                 res.json({
@@ -62,26 +61,9 @@ exports.view = function (req, res) {
 
 // Handle update artwork info
 exports.update = function (req, res) {
-    Artwork.findById(req.params.artwork_id, function (err, artwork) {
-        var artwork = new Artwork();
-        artwork.name = req.body.name;
-        artwork.skuName = req.body.skuName;
-        artwork.year = req.body.year;
-        artwork.dimensions = req.body.dimensions;
-        artwork.style = req.body.style;
-        artwork.period = req.body.period;
-        artwork.media = req.body.media;
-        artwork.location = req.body.location;
-        artwork.artist = req.body.artist;
-// save the artwork and check for errors
-        artwork.save(function (err) {
-            if (err)
-                res.json(err);
-            res.json({
-                message: 'Artwork Info updated',
-                data: artwork
-            });
-        });
+    Artwork.findOneAndUpdate({_id:req.params.artwork_id}, req.body, {upsert: true}, function(err, doc) {
+        if (err) return res.send(500, { error: err });
+        return res.send("succesfully saved");
     });
 };
 
