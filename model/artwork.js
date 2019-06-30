@@ -44,6 +44,11 @@ var artworkSchema = mongoose.Schema({
     artist: {
         type: mongoose.Schema.ObjectId,
         ref: 'Artist'
+    },
+    popularity: {
+        type: Number,
+        min: 0,
+        max: 100
     }
 });
 module.exports = mongoose.model('Artwork', artworkSchema);

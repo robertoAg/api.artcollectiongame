@@ -33,6 +33,7 @@ exports.new = function (req, res) {
     artwork.media = req.body.media;
     artwork.location = req.body.location;
     artwork.artist = req.body.artist;
+    artwork.popularity = req.body.popularity;
 // save the artwork and check for errors
     artwork.save(function (err) {
         if (err) {

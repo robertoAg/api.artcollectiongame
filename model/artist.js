@@ -56,7 +56,15 @@ var artistSchema = mongoose.Schema({
     biography: [
         {
             date: {
-                type: String
+                year: {
+                    type: String
+                },
+                month: {
+                    type: String
+                },
+                day: {
+                    type: String
+                }
             },
             place: {
                 city: {
@@ -67,7 +75,9 @@ var artistSchema = mongoose.Schema({
                 }
             },
             fact: {
-                type: mongoose.Schema.Types.Mixed
+                es: {
+                    type: String
+                }
             }  
         }
     ],
