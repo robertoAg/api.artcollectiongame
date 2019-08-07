@@ -2,6 +2,7 @@ let router = require('express').Router();
 
 var artistController = require('./../controller/artistController');
 var artworkController = require('./../controller/artworkController');
+var userController = require('./../controller/userController');
 
 router.route('/artist')
     .get(artistController.index)
@@ -20,5 +21,14 @@ router.route('/artwork/:artwork_id')
     .patch(artworkController.update)
     .put(artworkController.update)
     .delete(artworkController.delete);
+
+router.route('/user')
+    .get(userController.index)
+    .post(userController.new);
+router.route('/user/:user_id')
+    .get(userController.view)
+    .patch(userController.update)
+    .put(userController.update)
+    .delete(userController.delete);
     
 module.exports = router;
