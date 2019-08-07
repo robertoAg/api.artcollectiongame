@@ -14,7 +14,8 @@ exports.index = function (req, res) {
             }
             res.json({
                 status: "success",
-                message: "Users retrieved successfully"
+                message: "Users retrieved successfully",
+                data: results
             })
         });
 };
