@@ -5,7 +5,7 @@ exports.index = function (req, res) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     Artwork
         .find(req.query)
-        // .populate('artist')
+        .populate('artist', 'name')
         .exec((err, results) => {
             if (err) {
                 res.json({

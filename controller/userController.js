@@ -23,6 +23,7 @@ exports.index = function (req, res) {
 exports.new = function (req, res) {
     var user = new User();
     user.nickname = req.body.nickname;
+    user.artworks = req.body.artworks;
     // save the user and check for errors
     user.save(function (err) {
         if (err) {
