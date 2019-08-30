@@ -67,16 +67,21 @@ exports.view = function (req, res) {
 
 // Handle update artwork info
 exports.update = function (req, res) {
-    Artwork.findOneAndUpdate({_id:req.params.artwork_id}, req.body, {upsert: true}, function(err, doc) {
-        Artist.findById(req.body.artist, function (err, artist) {
-            if(artist.artworks.indexOf(req.params.artwork_id) === -1) {
-                artist.artworks.push(req.params.artwork_id)
-                artist.save();
-            }
-        })
-        if (err) return res.send(500, { error: err });
-        return res.json({
-            message: 'succesfully saved'
+    Artist.findOne({artworks:req.body._id}, function(err, artist) {
+        artist.artworks = artist.artworks.filter(item => { return item != req.body._id; });
+        artist.save();
+        
+        Artwork.findOneAndUpdate({_id:req.params.artwork_id}, req.body, {upsert: true}, function(err, doc) {
+            Artist.findById(req.body.artist, function (err, artist) {
+                if(artist.artworks.indexOf(req.params.artwork_id) === -1) {
+                    artist.artworks.push(req.params.artwork_id)
+                    artist.save();
+                }
+            })
+            if (err) return res.send(500, { error: err });
+            return res.json({
+                message: 'succesfully saved'
+            });
         });
     });
 };
