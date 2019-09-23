@@ -8,6 +8,15 @@ var userSchema = mongoose.Schema({
             type: [mongoose.Schema.ObjectId],
             ref: 'Artwork'
         }
-    ]
+    ],
+    points: {
+        type: Number
+    },
+    coins: {
+        type: Number
+    },
+    premiumCoins: {
+        type: Number
+    }
 });
 module.exports = mongoose.model('User', userSchema);

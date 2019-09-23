@@ -24,6 +24,9 @@ exports.new = function (req, res) {
     var user = new User();
     user.nickname = req.body.nickname;
     user.artworks = req.body.artworks;
+    user.points = req.body.points;
+    user.coins = req.body.coins;
+    user.premiumCoins = req.body.premiumCoins;
     // save the user and check for errors
     user.save(function (err) {
         if (err) {

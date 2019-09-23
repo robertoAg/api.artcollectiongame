@@ -16,7 +16,7 @@ User = require('./model/user');
 // Connect to Mongoose and set connection variable
 // mongodb atlas free cluster
 //mongodb+srv://rob:<password>@cluster0-qwcgx.mongodb.net/test?retryWrites=true&w=majority
-mongoose.connect('mongodb://rob:pimientos@cluster0-qwcgx.mongodb.net/test?retryWrites=true&w=majority', function (err) {
+mongoose.connect('mongodb+srv://rob:U7fe3GdNldJ5l79A@cluster0-qwcgx.mongodb.net/test?retryWrites=true&w=majority', function (err) {
 //mongoose.connect('mongodb://localhost/resthub', function (err) {
  
     if (err) throw err;
