@@ -49,6 +49,13 @@ var artworkSchema = mongoose.Schema({
         type: Number,
         min: 0,
         max: 100
-    }
+    },
+    description: [
+        {
+            es: {
+                type: String
+            }
+        }
+    ]
 });
 module.exports = mongoose.model('Artwork', artworkSchema);

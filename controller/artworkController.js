@@ -34,6 +34,7 @@ exports.new = function (req, res) {
     artwork.location = req.body.location;
     artwork.artist = req.body.artist;
     artwork.popularity = req.body.popularity;
+    artwork.description = req.body.description;
 // save the artwork and check for errors
     artwork.save(function (err) {
         if (err) {
