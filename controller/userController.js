@@ -75,3 +75,46 @@ exports.delete = function (req, res) {
         });
     });
 };
+
+exports.addBox = function (req, res) {
+    User.findById(req.params.user_id, function (err, user) {
+        if(user.boxes.length < 4){
+
+            //type
+            const n = Math.floor(Math.random()*100);
+            let type;
+            if(n < 71){
+                type = 1;
+            }else if(n < 91){
+                type = 2;
+            }else if(n < 97){
+                type = 3;
+            }else if(n < 99){
+                type = 4;
+            }else{
+                type = 5;
+            }
+
+            const box = {
+                id: user.boxes.length + 1,
+                type: type
+            }
+            user.boxes.push(box);
+            user.save(function (err) {
+                if (err) {
+                    res.json(err);
+                }else{
+                    res.json({
+                        message: 'New box created!',
+                        data: user
+                    });
+                }
+            });
+        }else{
+            res.json({
+                message: 'Boxes already full. Not created any box.',
+                data: user
+            });
+        }
+    });
+}

@@ -30,5 +30,7 @@ router.route('/user/:user_id')
     .patch(userController.update)
     .put(userController.update)
     .delete(userController.delete);
+router.route('/user/:user_id/addBox')
+    .post(userController.addBox);
     
 module.exports = router;

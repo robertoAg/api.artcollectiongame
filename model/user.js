@@ -17,6 +17,11 @@ var userSchema = mongoose.Schema({
     },
     premiumCoins: {
         type: Number
-    }
+    },
+    boxes: [
+        {
+            type: mongoose.Schema.Types.Mixed
+        }
+    ]
 });
 module.exports = mongoose.model('User', userSchema);
