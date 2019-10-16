@@ -69,7 +69,7 @@ exports.delete = function (req, res) {
 exports.addBox = function (req, res) {
     User.findById(req.params.user_id, function (err, user) {
         if (err) return res.status(500).send({ error: err });
-        if(user.boxes.length < 4){
+        if(user && user.boxes.length < 4){
 
             //type
             const n = Math.floor(Math.random()*100);
@@ -103,7 +103,7 @@ exports.addBox = function (req, res) {
             });
         }else{
             res.json({
-                message: 'Boxes already full. Not created any box.',
+                message: 'Boxes already full or user not found. Not created any box.',
                 data: user
             });
         }
@@ -195,6 +195,8 @@ exports.openBox = function(req, res) {
                         coins: prizeCoins,
                         premiumCoins: prizePremiumCoins
                     };
+                    user.coins = ((user.coins)? user.coins : 0) + prizeCoins;
+                    user.premiumCoins = ((user.premiumCoins)? user.premiumCoins : 0) + prizePremiumCoins;
                     // remove box
                     user.boxes.splice([box_index], 1);
                     user.markModified('boxes');
