@@ -30,7 +30,10 @@ router.route('/user/:user_id')
     .patch(userController.update)
     .put(userController.update)
     .delete(userController.delete);
-router.route('/user/:user_id/addBox')
+router.route('/user/:user_id/box')
     .post(userController.addBox);
+router.route('/user/:user_id/box/:box_id')
+    .put(userController.activateBox)
+    .delete(userController.openBox);
     
 module.exports = router;

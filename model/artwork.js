@@ -8,6 +8,10 @@ var artworkSchema = mongoose.Schema({
         required: true,
         unique: true
     },
+    title: {
+        es:  String,
+        en: String
+    },
     year: {
         type: String
     },
