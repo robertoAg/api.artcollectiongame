@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 Artist = require('./model/artist');
 Artwork = require('./model/artwork');
 User = require('./model/user');
+Game = require('./model/game');
 
 // Connect to Mongoose and set connection variable
 // mongodb atlas free cluster
