@@ -87,7 +87,7 @@ exports.addBox = function (req, res) {
             }
 
             const box = {
-                id: user.boxes[user.boxes.length - 1].id + 1,
+                id: (user.boxes.length)? user.boxes[user.boxes.length - 1].id + 1 : 1,
                 type: type
             }
             user.boxes.push(box);
@@ -113,7 +113,7 @@ exports.addBox = function (req, res) {
 exports.activateBox = function(req, res) {
     User.findById(req.params.user_id, function (err, user) {
         if (err) return res.status(500).send({ error: err });
-        if(user.boxes && req.params.box_id){
+        if(user && user.boxes && req.params.box_id){
             let i = 0;
             let box_index;
             while(user.boxes.length > i){
