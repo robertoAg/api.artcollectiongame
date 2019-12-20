@@ -1,5 +1,7 @@
 **Endpoints**
 
+npm run start:dev
+
 */api/artist*
 *POST*
 
