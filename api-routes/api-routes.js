@@ -3,6 +3,7 @@ let router = require('express').Router();
 var artistController = require('./../controller/artistController');
 var artworkController = require('./../controller/artworkController');
 var userController = require('./../controller/userController');
+var gameController = require('./../controller/gameController');
 
 router.route('/artist')
     .get(artistController.index)
@@ -36,4 +37,13 @@ router.route('/user/:user_id/box/:box_id')
     .put(userController.activateBox)
     .delete(userController.openBox);
     
+router.route('/game')
+    .get(gameController.index)
+    .post(gameController.new);
+router.route('/game/:game_id')
+    .get(gameController.view)
+    .patch(gameController.update)
+    .put(gameController.update)
+    .delete(gameController.delete);
+
 module.exports = router;

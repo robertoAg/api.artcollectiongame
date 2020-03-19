@@ -12,12 +12,13 @@ app.use(bodyParser.json());
 Artist = require('./model/artist');
 Artwork = require('./model/artwork');
 User = require('./model/user');
+Game = require('./model/game');
 
 // Connect to Mongoose and set connection variable
 // mongodb atlas free cluster
 //mongodb+srv://rob:<password>@cluster0-qwcgx.mongodb.net/test?retryWrites=true&w=majority
-mongoose.connect('mongodb+srv://rob:U7fe3GdNldJ5l79A@cluster0-qwcgx.mongodb.net/test?retryWrites=true&w=majority', function (err) {
-//mongoose.connect('mongodb://localhost/resthub', function (err) {
+//mongoose.connect('mongodb+srv://rob:U7fe3GdNldJ5l79A@cluster0-qwcgx.mongodb.net/test?retryWrites=true&w=majority', function (err) {
+mongoose.connect('mongodb://localhost/resthub', function (err) {
  
     if (err) throw err;
   

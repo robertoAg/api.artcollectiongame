@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5d81f5e7e637c021dcfec73a"},"nickname":"rob","__v":4,"artworks":[{"$oid":"5d8a3442f293f6229457f8bd"},{"$oid":"5d8a3cdff293f6229457f8be"}],"points":3,"coins":21,"premiumCoins":8,"boxes":[{"id":1,"type":2,"activatedTimestamp":"2019-11-14T17:21"},{"id":2,"type":3},{"id":3,"type":1}]}

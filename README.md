@@ -48,3 +48,8 @@ BalancerPersist On
 </Location>
  SSLCertificateFile /etc/letsencrypt/live/gogameplus.mobi/fullchain.pem
 SSLCertificateKeyFile /etc/letsencrypt/live/gogameplus.mobi/privkey.pem
+
+// exportar desde cluster
+mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-qwcgx.mongodb.net:27017,cluster0-shard-00-01-qwcgx.mongodb.net:27017,cluster0-shard-00-02-qwcgx.mongodb.net:27017 --ssl --username rob --password <PASSWORD> --authenticationDatabase admin --db <DATABASE> --collection <COLLECTION> --type <FILETYPE> --out <FILENAME>
+
+mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-qwcgx.mongodb.net:27017,cluster0-shard-00-01-qwcgx.mongodb.net:27017,cluster0-shard-00-02-qwcgx.mongodb.net:27017 --ssl --username rob --password U7fe3GdNldJ5l79A --authenticationDatabase admin --db test --collection artworks --type json --out artworks.json

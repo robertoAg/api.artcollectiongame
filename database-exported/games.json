@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5dcbe114c3fa590d08979a34"},"config":[""],"name":"Prueba","artist":{"$oid":"5d820fdfe637c021dcfec74a"},"__v":0}
+{"_id":{"$oid":"5dce73f023f3ad2dec674e26"},"config":["options"],"name":"Prueba 2","artist":{"$oid":"5d82107de637c021dcfec74b"},"__v":0}
+{"_id":{"$oid":"5dce74be23f3ad2dec674e27"},"config":["options: {}"],"name":"Prueba 3","artist":{"$oid":"5d82128fe637c021dcfec751"},"__v":0}
