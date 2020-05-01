@@ -167,7 +167,7 @@ exports.openBox = function(req, res) {
                 i++;
             }
             if(box_index !== undefined && user.boxes[box_index]['activatedTimestamp']){
-                const diff = Date.now() - user.boxes[box_index]['activatedTimestamp'];
+                const diff = Date.now() - new Date(user.boxes[box_index]['activatedTimestamp']).getTime();
                 const diffMin = Math.floor(diff/60000);
                 let minNeeded;
                 let prizeCoins;
