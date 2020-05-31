@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'Artist'
     },
-    artist: {
+    artwork: {
         type: mongoose.Schema.ObjectId,
         ref: 'Artwork'
     },
