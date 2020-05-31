@@ -6,7 +6,6 @@ exports.index = function (req, res) {
     Game
         .find(req.query)
         .populate('artist', 'name')
-        .populate('artist', 'skuName')
         .populate('artwork', 'skuName')
         .exec((err, results) => {
             if (err) {
