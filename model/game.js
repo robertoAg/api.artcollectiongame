@@ -7,6 +7,10 @@ var userSchema = mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'Artist'
     },
+    artist: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Artwork'
+    },
     config: [
         {
             type: mongoose.Schema.Types.Mixed
