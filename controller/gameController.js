@@ -6,6 +6,7 @@ exports.index = function (req, res) {
     Game
         .find(req.query)
         .populate('artist', 'name')
+        .populate('artwork', 'skuName')
         .exec((err, results) => {
             if (err) {
                 res.json({
@@ -26,6 +27,7 @@ exports.new = function (req, res) {
     var game = new Game();
     game.name = req.body.name;
     game.artist = req.body.artist;
+    game.artwork = req.body.artwork;
     game.config = req.body.config;
     // save the game and check for errors
     game.save(function (err) {
