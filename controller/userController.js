@@ -48,7 +48,8 @@ exports.update = function (req, res) {
     User.findOneAndUpdate({_id:req.params.user_id}, req.body, {upsert: true}, function(err, doc) {
         if (err) return res.status(500).send({ error: err });
         return res.json({
-            message: 'succesfully saved'
+            message: 'succesfully saved',
+            data: doc
         });
     });
 };

@@ -60,7 +60,8 @@ exports.update = function (req, res) {
     Artist.findOneAndUpdate({_id:req.params.artist_id}, req.body, {upsert: true}, function(err, doc) {
         if (err) return res.send(500, { error: err });
         return res.json({
-            message: 'succesfully saved'
+            message: 'succesfully saved',
+            data: doc
         });
     });
 };
