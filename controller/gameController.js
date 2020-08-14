@@ -60,7 +60,7 @@ exports.update = function (req, res) {
         if (err) return res.status(500).send({ error: err });
         return res.json({
             message: 'succesfully saved',
-            data: doc
+            data: req.body
         });
     });
 };
